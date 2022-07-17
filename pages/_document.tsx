@@ -24,6 +24,10 @@ const global = globalCss({
     color: '$gray900',
     margin: 0
   },
+  p: {
+    marginBottom: '$6',
+    lineHeight: '1.6em'
+  },
   '::selection': {
     background: '$purple500',
     color: 'white'

@@ -11,7 +11,7 @@ const StyledButton = styled('button', {
   borderRadius: '$sm',
   padding: '$2',
   background: 'transparent',
-  color: '$gray300',
+  color: 'white',
   cursor: 'pointer',
   transition: '0.15s',
   '&:hover': {
@@ -25,10 +25,10 @@ const StyledButton = styled('button', {
   variants: {
     state: {
       copied: {
-        background: '$purple600',
+        background: '$purple500',
         color: 'white',
         '&:hover': {
-          background: '$purple600',
+          background: '$purple500',
           color: 'white'
         }
       }

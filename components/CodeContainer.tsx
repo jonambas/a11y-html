@@ -38,10 +38,6 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
             // intersection observer reacts correctly
             // todo: fix me
             marginBottom: '75vh'
-          },
-          '& p': {
-            marginBottom: '$6',
-            lineHeight: '1.6em'
           }
         })()}
       >
