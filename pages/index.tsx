@@ -79,8 +79,8 @@ const Home: NextPage = () => {
           </p>
           <CodeSection title="role" linkTarget="#toggle-role">
             <p>
-              The attribute <InlineCode>role=&quotswitch&quot</InlineCode> tells
-              assistive technology that this element is a switch.
+              The attribute <InlineCode>role=&quot;switch&quot;</InlineCode>{' '}
+              tells assistive technology that this element is a switch.
             </p>
             <ul>
               <li>
@@ -101,8 +101,8 @@ const Home: NextPage = () => {
             <p>
               The aria attribute <InlineCode>aria-checked</InlineCode> is
               required for any elements with a switch role. Values can either be{' '}
-              <InlineCode>&quottrue&quot</InlineCode> or{' '}
-              <InlineCode>&quotfalse&quot</InlineCode>.
+              <InlineCode>&quot;true&quot;</InlineCode> or{' '}
+              <InlineCode>&quot;false&quot;</InlineCode>.
             </p>
             <ul>
               <li>
