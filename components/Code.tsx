@@ -54,9 +54,6 @@ const Wrapper = styled('div', {
     '&:focus-visible': {
       outline: 'none',
       boxShadow: '$focusDark'
-    },
-    '.token': {
-      opacity: '1'
     }
   }
 });
@@ -180,6 +177,7 @@ const renderer = (props: any): ReactNode => {
     return acc;
   }, []);
 
+  // Collects links and pushes to context
   useEffect(() => {
     let hrefs = [];
     for (const row of parsedLinks) {

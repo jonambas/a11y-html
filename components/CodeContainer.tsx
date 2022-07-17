@@ -11,40 +11,49 @@ type CodeContainerProps = {
 
 const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
   const { code, title, children } = props;
-  const { links } = useCodeLinks();
 
   return (
-    <div
-      className={css({
-        position: 'relative',
-        display: 'grid',
-        gridTemplateColumns: '1fr 50%',
-        gridGap: '1rem',
-        marginBottom: '$12'
-      })()}
-    >
-      <div>
-        <h2
-          className={css({
-            fontSize: '$700',
-            fontWeight: 'bold',
-            marginBottom: '$4'
-          })()}
-        >
-          {title}
-        </h2>
-        {children}
-      </div>
-      <div
+    <>
+      <h2
         className={css({
-          position: 'sticky',
-          top: '$8',
-          alignSelf: 'start'
+          fontSize: '$700',
+          fontWeight: 'bold',
+          marginBottom: '$8'
         })()}
       >
-        <Code code={code} />
+        {title}
+      </h2>
+      <div
+        className={css({
+          position: 'relative',
+          display: 'grid',
+          gridTemplateColumns: '1fr 50%',
+          gridGap: '1rem',
+          marginBottom: '$12',
+          '&:last-child .spacer': {
+            // adds extra scroll area for last content block so
+            // intersection observer reacts correctly
+            // todo: fix me
+            marginBottom: '75vh'
+          }
+        })()}
+      >
+        <div>
+          {children}
+          <div className="spacer" />
+        </div>
+        <div
+          className={css({
+            position: 'sticky',
+            // marginTop: '$12',
+            top: '$8',
+            alignSelf: 'start'
+          })()}
+        >
+          <Code code={code} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

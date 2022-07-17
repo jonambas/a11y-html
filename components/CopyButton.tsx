@@ -5,6 +5,8 @@ import { CopyIcon, CheckIcon } from '~components/icons';
 import { SROnly } from '~components/SROnly';
 
 const StyledButton = styled('button', {
+  display: 'inline-flex',
+  alignItems: 'center',
   border: 'none',
   borderRadius: '$sm',
   padding: '$2',

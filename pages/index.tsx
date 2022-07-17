@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 
-import { styled } from '~stitches';
+import { styled, css } from '~stitches';
 import { CodeContainer } from '~components/CodeContainer';
 import { CodeSection } from '~components/CodeSection';
 
@@ -18,7 +18,7 @@ const toggle = `
 const toggleButton = `
 <button
   type="button"
-  [#ariapressed]aria-pressed="true"[]
+  [#togglebutton-pressed]aria-pressed="true"[]
 >
   Toggle
 </button>
@@ -27,16 +27,16 @@ const toggleButton = `
 const menu = `
 <button 
   type="button"
-  [#id]id="menu-trigger"[]
-  [#id]aria-haspopup="true"[]
-  [#id]aria-expanded="true"[]
-  [#id]aria-controls="menu-container"[]
+  [#menu-idtrigger]id="menu-trigger"[]
+  [#menu-haspopup]aria-haspopup="true"[]
+  [#menu-expanded]aria-expanded="true"[]
+  [#menu-controls]aria-controls="menu-container"[]
   >
   Options
 </button>
 <div
-  [#id]aria-labelledby="menu-trigger"[]
-  [#id]id="menu-container"[]
+  [#menu-idtrigger]aria-labelledby="menu-trigger"[]
+  [#menu-controls]id="menu-container"[]
   [#id]role="menu"[]
   [#id]tabindex="0"[]
   >
@@ -63,18 +63,21 @@ const Home: NextPage = () => {
         <title>A11Y HTML</title>
       </Head>
       <div>
+        <h1
+          className={css({
+            padding: '$12 0',
+            margin: '$12 0',
+            fontSize: '$900'
+          })()}
+        >
+          A11y HTML
+        </h1>
         <CodeContainer code={toggle} title="Toggle">
           <CodeSection title="role" linkTarget="#toggle-role">
             <p>
               lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
               ipsum
             </p>
-            <p>lorem ipsum</p>
-            <p>lorem ipsum</p>
-            <p>lorem ipsum</p>
-            <p>lorem ipsum</p>
-            <p>lorem ipsum</p>
-            <p>lorem ipsum</p>
             <p>lorem ipsum</p>
             <p>lorem ipsum</p>
             <p>lorem ipsum</p>
@@ -93,6 +96,14 @@ const Home: NextPage = () => {
             <p>lorem ipsum</p>
             <p>lorem ipsum</p>
             <p>lorem ipsum</p>
+          </CodeSection>
+        </CodeContainer>
+        <CodeContainer code={toggleButton} title="Toggle Button">
+          <CodeSection title="aria-pressed" linkTarget="#togglebutton-pressed">
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
             <p>lorem ipsum</p>
             <p>lorem ipsum</p>
             <p>lorem ipsum</p>
@@ -101,8 +112,59 @@ const Home: NextPage = () => {
             <p>lorem ipsum</p>
           </CodeSection>
         </CodeContainer>
-        <CodeContainer code={toggleButton} title="Toggle Button" />
-        <CodeContainer code={menu} title="Dropdown Menu" />
+        <CodeContainer code={menu} title="Dropdown Menu">
+          <CodeSection
+            title="Linking the trigger with the menu"
+            linkTarget="#menu-idtrigger"
+          >
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+          </CodeSection>
+          <CodeSection title="aria-haspopup" linkTarget="#menu-haspopup">
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+          </CodeSection>
+          <CodeSection title="aria-expanded" linkTarget="#menu-expanded">
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+          </CodeSection>
+          <CodeSection title="aria-controls" linkTarget="#menu-controls">
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+          </CodeSection>
+        </CodeContainer>
       </div>
     </>
   );

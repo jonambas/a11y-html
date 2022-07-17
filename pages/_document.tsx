@@ -3,6 +3,8 @@ import { getCssText, globalCss } from '~stitches';
 
 const global = globalCss({
   html: {
+    // Required for intersection observer to update correctly
+    // when clicking anchor links
     scrollBehavior: 'smooth'
   },
   body: {

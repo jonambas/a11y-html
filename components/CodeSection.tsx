@@ -12,10 +12,11 @@ type CodeSectionProps = {
 export const CodeSection: FC<PropsWithChildren<CodeSectionProps>> = (props) => {
   const { children, linkTarget, title } = props;
   const { ref, inView } = useInView({
-    threshold: 0.4,
-    rootMargin: '0px 0px -60% 0px'
+    threshold: 1,
+    rootMargin: '0px 0px -50% 0px',
+    delay: 20
   });
-  const { active, setActive } = useCodeLinks();
+  const { setActive } = useCodeLinks();
 
   useEffect(() => {
     setActive({ [linkTarget]: inView });
