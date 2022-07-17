@@ -23,6 +23,11 @@ const global = globalCss({
   '::selection': {
     background: '$purple500',
     color: 'white'
+  },
+  ul: {
+    padding: '0 0 0 $4',
+    margin: '0 0 $4 0',
+    lineHeight: '1.6em'
   }
 });
 

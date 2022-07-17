@@ -2,7 +2,7 @@ import { FC, ReactNode, PropsWithChildren } from 'react';
 
 import { css } from '~stitches';
 import { Code } from '~components/Code';
-import { CodeLinkProvider, useCodeLinks } from '~context/codeLinks';
+import { CodeLinkProvider } from '~context/codeLinks';
 
 type CodeContainerProps = {
   code: string;
@@ -28,13 +28,17 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
           position: 'relative',
           display: 'grid',
           gridTemplateColumns: '1fr 50%',
-          gridGap: '1rem',
+          gridGap: '$8',
           marginBottom: '$12',
           '&:last-child .spacer': {
             // adds extra scroll area for last content block so
             // intersection observer reacts correctly
             // todo: fix me
             marginBottom: '75vh'
+          },
+          '& p': {
+            marginBottom: '$6',
+            lineHeight: '1.6em'
           }
         })()}
       >

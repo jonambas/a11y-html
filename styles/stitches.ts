@@ -87,7 +87,9 @@ export const { styled, css, getCssText, globalCss } = createStitches({
       7: '1.75rem',
       8: '2rem',
       10: '2.5rem',
-      12: '3rem'
+      12: '3rem',
+      16: '4rem',
+      20: '5rem'
     },
     fonts: {
       sans: "Inter, 'Inter var', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
@@ -115,8 +117,8 @@ export const { styled, css, getCssText, globalCss } = createStitches({
       pill: '9999px'
     },
     shadows: {
-      focus: '0 0 0 3px $colors$gray800',
-      focusDark: '0 0 0 4px $colors$purple500'
+      focus: '0 0 0 4px $colors$purple500',
+      focusDark: '0 0 0 4px $colors$purple300'
     }
   }
 });
