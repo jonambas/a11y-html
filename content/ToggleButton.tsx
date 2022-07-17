@@ -16,7 +16,7 @@ const toggleButton = `
 
 export const ToggleButton: FC = () => {
   return (
-    <CodeContainer code={toggleButton} title="Toggle Button">
+    <CodeContainer code={toggleButton} title="Toggle Button" id="togglebutton">
       <p>
         A toggle button that represents on or off values. Functionally similar
         to <InlineCode>switch</InlineCode>, but supports mixed values and should

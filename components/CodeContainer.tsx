@@ -6,15 +6,17 @@ import { CodeLinkProvider } from '~context/codeLinks';
 
 type CodeContainerProps = {
   code: string;
-  title: ReactNode;
+  title: string;
+  id: string;
 };
 
 const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
-  const { code, title, children } = props;
+  const { code, title, children, id } = props;
 
   return (
     <>
       <h2
+        id={id}
         className={css({
           fontSize: '$700',
           fontWeight: 'bold',
@@ -28,23 +30,16 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
           position: 'relative',
           display: 'grid',
           gridTemplateColumns: '1fr',
+          borderBottom: '1px solid $gray100',
           '@md': {
             gridTemplateColumns: '1fr 50%'
           },
           gridGap: '$8',
-          marginBottom: '$12',
-          '&:last-child .spacer': {
-            // adds extra scroll area for last content block so
-            // intersection observer reacts correctly
-            // todo: fix me
-            marginBottom: '75vh'
-          }
+          paddingBottom: '$20',
+          marginBottom: '$20'
         })()}
       >
-        <div>
-          {children}
-          <div className="spacer" />
-        </div>
+        <div>{children}</div>
         <div
           className={css({
             order: '-1',

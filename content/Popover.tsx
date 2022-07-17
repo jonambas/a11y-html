@@ -20,7 +20,7 @@ const popover = `
 
 export const Popover: FC = () => {
   return (
-    <CodeContainer code={popover} title="Popover">
+    <CodeContainer code={popover} title="Popover" id="popover">
       <p>
         A popover is an non-modal overlay element that displays additional
         content.

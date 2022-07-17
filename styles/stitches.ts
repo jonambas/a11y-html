@@ -39,7 +39,9 @@ export const { styled, css, getCssText, globalCss } = createStitches({
       10: '2.5rem',
       12: '3rem',
       16: '4rem',
-      20: '5rem'
+      20: '5rem',
+      24: '6rem',
+      32: '8rem'
     },
     fonts: {
       sans: "Inter, 'Inter var', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",

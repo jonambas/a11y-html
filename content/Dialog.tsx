@@ -20,7 +20,7 @@ const toggle = `
 
 export const Dialog: FC = () => {
   return (
-    <CodeContainer code={toggle} title="Dialog">
+    <CodeContainer code={toggle} title="Dialog" id="dialog">
       <p>
         A dialog is an interactive overlay component, such as a dismissible
         alert or confirmation window, that separates content from the rest of

@@ -1,4 +1,4 @@
-import { FC, ReactNode, PropsWithChildren, useEffect } from 'react';
+import { FC, PropsWithChildren, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 import { css } from '~stitches';
@@ -22,19 +22,15 @@ export const CodeSection: FC<PropsWithChildren<CodeSectionProps>> = (props) => {
   }, [inView]);
 
   return (
-    <>
-      <div>
-        <h3
-          ref={ref}
-          id={linkTarget.replace('#', '')}
-          className={css({ fontSize: '$500', marginBottom: '$3' })()}
-        >
-          {title}
-        </h3>
-        {children}
-      </div>
-      {/* Spacer here so intersection observer doesnt count whitesace */}
-      <div className={css({ marginTop: '$16' })()} />
-    </>
+    <div className={css({ '&:not(:last-child)': { marginBottom: '$16' } })()}>
+      <h3
+        ref={ref}
+        id={linkTarget.replace('#', '')}
+        className={css({ fontSize: '$500', marginBottom: '$3' })()}
+      >
+        {title}
+      </h3>
+      {children}
+    </div>
   );
 };
