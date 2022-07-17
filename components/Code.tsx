@@ -8,40 +8,47 @@ import {
 import cx from 'classnames';
 import { PrismLight as Syntax } from 'react-syntax-highlighter';
 import html from 'react-syntax-highlighter/dist/cjs/languages/prism/markup-templating';
-import style from 'react-syntax-highlighter/dist/cjs/styles/prism/vs-dark';
+import style from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
+
+import { CopyButton } from '~components/CopyButton';
+import { css } from '~stitches';
 
 Syntax.registerLanguage('html', html);
 
 import { styled } from '~stitches';
 
 const Wrapper = styled('div', {
-  padding: '$3',
+  padding: '$3 $12 $3 $3',
   background: '$codeBg',
   borderRadius: '$lg',
-  fontFamily: '$mono',
+  position: 'relative',
   pre: {
     fontFamily: '$mono',
     margin: 0,
     fontSize: '$200',
-    lineHeight: '1.75em',
+    lineHeight: '1.8em',
     fontWeight: 'semibold',
     color: '$gray100'
   },
   '.token': {
-    opacity: '0.7'
+    // opacity: '0.8'
   },
   '.link': {
     opacity: '1',
     background: '$gray800',
     borderRadius: '$sm',
-    padding: '0.2em 0.5em',
-    marginLeft: '-0.5em',
+    padding: '0.22em 0.3em',
+    marginLeft: '-0.3em',
     cursor: 'pointer',
     transition: '0.15s',
     color: 'unset',
     textDecoration: 'none',
     '&:hover': {
-      background: '$gray600'
+      background: '$gray700'
+    },
+    '&:focus-visible': {
+      outline: 'none',
+      boxShadow: '$focusDark'
     },
     '.token': {
       opacity: '1'
@@ -108,25 +115,27 @@ const rowHasLink = (row: any): boolean => {
   }, false);
 };
 
+const makeNewLinkNode = (node: any) => ({
+  type: 'element',
+  tagName: 'a',
+  children: [node],
+  properties: {
+    className: ['link'],
+    href: ''
+  }
+});
+
 const renderer = (props: any): ReactNode => {
   const parsedLinks = props.rows.reduce((acc: any[], row: any) => {
     if (rowHasLink(row)) {
-      const newRowChildren = [];
-      let linkStatus = '';
-      const newLinkNode = {
-        type: 'element',
-        tagName: 'a',
-        children: [] as any[],
-        properties: {
-          className: ['link'],
-          href: ''
-        }
-      };
+      let newRowChildren = [];
+      let insideLink = false;
+      let newLinkNode;
 
       for (const node of row.children) {
-        if (rowNodeHasLink(node)) {
-          linkStatus = 'started';
-          newLinkNode.children = [node];
+        if (!insideLink && rowNodeHasLink(node)) {
+          insideLink = true;
+          newLinkNode = makeNewLinkNode(node);
           const hrefParts = node.children[0].value
             .split(/(\[|\])/)
             .filter(Boolean);
@@ -135,13 +144,13 @@ const renderer = (props: any): ReactNode => {
         }
 
         if (rowNodeHasEndLink(node)) {
-          linkStatus = '';
+          insideLink = false;
           newRowChildren.push(newLinkNode);
           continue;
         }
 
-        if (linkStatus === 'started') {
-          newLinkNode.children.push(node);
+        if (insideLink) {
+          newLinkNode?.children.push(node);
           continue;
         }
 
@@ -168,9 +177,14 @@ type CodeProps = {
 export const Code: FC<CodeProps> = (props) => {
   const { code } = props;
   const string = code.trim();
+  const copyString = string.replaceAll('[]', '').replaceAll(/\[#(\S+)\]/g, '');
 
   return (
     <Wrapper id="code">
+      <CopyButton
+        toCopy={copyString}
+        className={css({ position: 'absolute', right: '$3' })()}
+      />
       <Syntax
         language="html"
         style={style}

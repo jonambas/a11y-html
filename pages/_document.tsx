@@ -10,6 +10,14 @@ const global = globalCss({
   },
   '*': {
     boxSizing: 'border-box'
+  },
+  'h1,h2,h3,h4,h5,h6,p': {
+    color: '$gray900',
+    margin: 0
+  },
+  '::selection': {
+    background: '$purple500',
+    color: 'white'
   }
 });
 
@@ -18,10 +26,15 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
         <style
           id="stitches"
           dangerouslySetInnerHTML={{ __html: getCssText() }}
         />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <body>
         <Main />

@@ -3,7 +3,7 @@ import { createStitches } from '@stitches/react';
 export const { styled, css, getCssText, globalCss } = createStitches({
   theme: {
     colors: {
-      codeBg: '#1e242a',
+      codeBg: '#1a1a1a',
       gray50: '#F9F9FC',
       gray100: '#ECEFF8',
       gray200: '#D8DEEB',
@@ -113,6 +113,10 @@ export const { styled, css, getCssText, globalCss } = createStitches({
       xl: '0.75rem',
       circle: '50%',
       pill: '9999px'
+    },
+    shadows: {
+      focus: '0 0 0 3px $colors$gray800',
+      focusDark: '0 0 0 4px $colors$purple500'
     }
   }
 });
