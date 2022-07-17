@@ -6,6 +6,7 @@ import { Switch } from '~content/Switch';
 import { ToggleButton } from '~content/ToggleButton';
 import { Menu } from '~content/Menu';
 import { Dialog } from '~content/Dialog';
+import { Popover } from '~content/Popover';
 
 const Home: NextPage = () => {
   return (
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
         <Switch />
         <ToggleButton />
         <Dialog />
+        <Popover />
         <Menu />
       </div>
     </>

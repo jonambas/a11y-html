@@ -36,10 +36,7 @@ const menu = `
 export const Menu: FC = () => {
   return (
     <CodeContainer code={menu} title="Dropdown Menu">
-      <CodeSection
-        title="Linking the trigger with the menu"
-        linkTarget="#menu-idtrigger"
-      >
+      <CodeSection title="aria-labelledby" linkTarget="#menu-idtrigger">
         <p>
           lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
           ipsum
