@@ -132,6 +132,9 @@ const renderer = (props: any): ReactNode => {
       let insideLink = false;
       let newLinkNode;
 
+      // Iterates over row children
+      // finds nodes encapsulated by the custom link sytanx
+      // and injects them as children under a new `a` node
       for (const node of row.children) {
         if (!insideLink && rowNodeHasLink(node)) {
           insideLink = true;
