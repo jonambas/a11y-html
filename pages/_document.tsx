@@ -5,7 +5,11 @@ const global = globalCss({
   html: {
     // Required for intersection observer to update correctly
     // when clicking anchor links
-    scrollBehavior: 'smooth'
+    scrollBehavior: 'smooth',
+    fontSize: '14px',
+    '@md': {
+      fontSize: '16px'
+    }
   },
   body: {
     margin: 0,

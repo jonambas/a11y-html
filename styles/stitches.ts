@@ -70,5 +70,11 @@ export const { styled, css, getCssText, globalCss } = createStitches({
       focus: '0 0 0 4px $colors$purple500',
       focusDark: '0 0 0 4px $colors$purple300'
     }
+  },
+  media: {
+    sm: '(min-width: 448px)',
+    md: '(min-width: 720px)',
+    lg: '(min-width: 960px)',
+    xl: '(min-width: 1200px)'
   }
 });

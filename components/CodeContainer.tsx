@@ -27,7 +27,10 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
         className={css({
           position: 'relative',
           display: 'grid',
-          gridTemplateColumns: '1fr 50%',
+          gridTemplateColumns: '1fr',
+          '@md': {
+            gridTemplateColumns: '1fr 50%'
+          },
           gridGap: '$8',
           marginBottom: '$12',
           '&:last-child .spacer': {
@@ -48,10 +51,13 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
         </div>
         <div
           className={css({
-            position: 'sticky',
-            // marginTop: '$12',
-            top: '$8',
-            alignSelf: 'start'
+            order: '-1',
+            '@md': {
+              order: 'inherit',
+              position: 'sticky',
+              top: '$8',
+              alignSelf: 'start'
+            }
           })()}
         >
           <Code code={code} />
