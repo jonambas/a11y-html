@@ -206,7 +206,7 @@ export const Code: FC<CodeProps> = (props) => {
   const copyString = string.replaceAll('[]', '').replaceAll(/\[#(\S+)\]/g, '');
 
   return (
-    <Wrapper id="code">
+    <Wrapper>
       <CopyButton
         toCopy={copyString}
         className={css({ position: 'absolute', right: '$3' })()}

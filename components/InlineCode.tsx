@@ -6,7 +6,7 @@ export const InlineCode: FC<PropsWithChildren> = (props) => {
     <span
       className={css({
         fontFamily: '$mono',
-        background: '$purple200',
+        background: '$purple100',
         padding: '0.15em 0.3em',
         borderRadius: '$sm',
         color: '$purple800',
