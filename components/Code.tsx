@@ -100,8 +100,9 @@ const Row: FC<RowProps> = (props) => {
       )}
       href={properties.href}
       style={style}
-      children={contents}
-    />
+    >
+      {contents}
+    </Elem>
   );
 };
 
@@ -131,7 +132,7 @@ const makeNewLinkNode = (node: any) => ({
   }
 });
 
-const renderer = (props: any): ReactNode => {
+const Renderer = (props: any): ReactNode => {
   const { add } = useCodeLinks();
 
   const parsedLinks = props.rows.reduce((acc: any[], row: any) => {
@@ -213,7 +214,7 @@ export const Code: FC<CodeProps> = (props) => {
       <Syntax
         language="html"
         style={style}
-        renderer={renderer}
+        renderer={Renderer}
         useInlineStyles={false}
         codeTagProps={{ style: {} }}
       >
