@@ -28,7 +28,7 @@ export const ToggleButton: FC = () => {
           either <InlineCode>&quot;true&quot;</InlineCode>,{' '}
           <InlineCode>&quot;false&quot;</InlineCode>,{' '}
           <InlineCode>&quot;mixed&quot;</InlineCode> or{' '}
-          <InlineCode>&quot;undefined&quot;</InlineCode>.
+          <InlineCode>undefined</InlineCode>.
         </p>
         <ul>
           <li>
