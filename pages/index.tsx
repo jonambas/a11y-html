@@ -40,8 +40,8 @@ const Home: NextPage = () => {
         </div>
 
         <Dialog />
-        <Menu />
-        <Popover />
+        {/* <Menu /> */}
+        {/* <Popover /> */}
         <Switch />
         <ToggleButton />
       </div>
