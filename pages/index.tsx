@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import { css } from '~stitches';
-import { ToggleOnOff } from '~content/ToggleOnOff';
+import { Switch } from '~content/Switch';
 import { ToggleButton } from '~content/ToggleButton';
 import { Menu } from '~content/Menu';
 import { Dialog } from '~content/Dialog';
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         >
           A11y HTML
         </h1>
-        <ToggleOnOff />
+        <Switch />
         <ToggleButton />
         <Dialog />
         <Menu />

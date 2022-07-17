@@ -5,7 +5,7 @@ import { CodeSection } from '~components/CodeSection';
 import { InlineCode } from '~components/InlineCode';
 import { InlineLink } from '~components/InlineLink';
 
-const toggle = `
+const switchCode = `
 <button
   type="button"
   [#toggle-role]role="switch"[]
@@ -15,9 +15,9 @@ const toggle = `
 </button>
 `;
 
-export const ToggleOnOff: FC = () => {
+export const Switch: FC = () => {
   return (
-    <CodeContainer code={toggle} title="Toggle Button (On/Off)">
+    <CodeContainer code={switchCode} title="Switch (On/Off)">
       <p>
         A type of checkbox that represents on and off values, as opposed to
         checked and unchecked values. Functionally the same as a{' '}
