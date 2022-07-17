@@ -3,7 +3,8 @@ import {
   PropsWithChildren,
   ReactNode,
   Fragment,
-  ComponentProps
+  ComponentProps,
+  useEffect
 } from 'react';
 import cx from 'classnames';
 import { PrismLight as Syntax } from 'react-syntax-highlighter';
@@ -11,6 +12,7 @@ import html from 'react-syntax-highlighter/dist/cjs/languages/prism/markup-templ
 import style from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark';
 
 import { CopyButton } from '~components/CopyButton';
+import { useCodeLinks } from '~context/codeLinks';
 import { css } from '~stitches';
 
 Syntax.registerLanguage('html', html);
@@ -30,9 +32,6 @@ const Wrapper = styled('div', {
     fontWeight: 'semibold',
     color: '$gray100'
   },
-  '.token': {
-    // opacity: '0.8'
-  },
   '.link': {
     opacity: '1',
     background: '$gray800',
@@ -43,8 +42,14 @@ const Wrapper = styled('div', {
     transition: '0.15s',
     color: 'unset',
     textDecoration: 'none',
+    '&.in-view': {
+      background: '$purple700'
+    },
     '&:hover': {
-      background: '$gray700'
+      background: '$gray700',
+      '&.in-view': {
+        background: '$purple700'
+      }
     },
     '&:focus-visible': {
       outline: 'none',
@@ -70,6 +75,7 @@ type RowProps = {
 
 const Row: FC<RowProps> = (props) => {
   const { tagName, children = [], properties, stylesheet } = props;
+  const { active } = useCodeLinks();
 
   const contents = children.map((child, i) => {
     if (child.type === 'text') {
@@ -91,7 +97,10 @@ const Row: FC<RowProps> = (props) => {
 
   return (
     <Elem
-      className={cx(properties?.className)}
+      className={cx(
+        properties?.className,
+        active[properties.href] && 'in-view'
+      )}
       href={properties.href}
       style={style}
       children={contents}
@@ -126,6 +135,8 @@ const makeNewLinkNode = (node: any) => ({
 });
 
 const renderer = (props: any): ReactNode => {
+  const { add } = useCodeLinks();
+
   const parsedLinks = props.rows.reduce((acc: any[], row: any) => {
     if (rowHasLink(row)) {
       let newRowChildren = [];
@@ -135,6 +146,7 @@ const renderer = (props: any): ReactNode => {
       // Iterates over row children
       // finds nodes encapsulated by the custom link sytanx
       // and injects them as children under a new `a` node
+
       for (const node of row.children) {
         if (!insideLink && rowNodeHasLink(node)) {
           insideLink = true;
@@ -166,6 +178,18 @@ const renderer = (props: any): ReactNode => {
 
     acc.push(row);
     return acc;
+  }, []);
+
+  useEffect(() => {
+    let hrefs = [];
+    for (const row of parsedLinks) {
+      for (const child of row.children) {
+        if (child.tagName === 'a') {
+          hrefs.push(child.properties.href);
+        }
+      }
+    }
+    add(hrefs);
   }, []);
 
   return parsedLinks.map((row: any, i: number) => {

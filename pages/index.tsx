@@ -1,20 +1,25 @@
 import type { NextPage } from 'next';
-import { Code } from '~components/Code';
-import { CodeSection } from '~components/CodeSection';
-import { styled } from '~stitches';
 import Head from 'next/head';
 
+import { styled } from '~stitches';
+import { CodeContainer } from '~components/CodeContainer';
+import { CodeSection } from '~components/CodeSection';
+
 const toggle = `
-<button type="button"
-  [#role]role="switch"[]
-  [#checked]aria-checked="true"[]
+<button
+  type="button"
+  [#toggle-role]role="switch"[]
+  [#toggle-checked]aria-checked="true"[]
 >
   Toggle
 </button>
 `;
 
 const toggleButton = `
-<button type="button" [#ariapressed]aria-pressed="true"[]>
+<button
+  type="button"
+  [#ariapressed]aria-pressed="true"[]
+>
   Toggle
 </button>
 `;
@@ -58,9 +63,46 @@ const Home: NextPage = () => {
         <title>A11Y HTML</title>
       </Head>
       <div>
-        <CodeSection code={toggle} title="Toggle" />
-        <CodeSection code={toggleButton} title="Toggle Button" />
-        <CodeSection code={menu} title="Dropdown Menu" />
+        <CodeContainer code={toggle} title="Toggle">
+          <CodeSection title="role" linkTarget="#toggle-role">
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+          </CodeSection>
+          <CodeSection title="aria-checked" linkTarget="#toggle-checked">
+            <p>
+              lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
+              ipsum
+            </p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+            <p>lorem ipsum</p>
+          </CodeSection>
+        </CodeContainer>
+        <CodeContainer code={toggleButton} title="Toggle Button" />
+        <CodeContainer code={menu} title="Dropdown Menu" />
       </div>
     </>
   );

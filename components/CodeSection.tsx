@@ -1,62 +1,40 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, PropsWithChildren, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import { css } from '~stitches';
-import { Code } from '~components/Code';
+import { useCodeLinks } from '~context/codeLinks';
 
 type CodeSectionProps = {
-  code: string;
-  title: ReactNode;
+  linkTarget: string;
+  title: string;
 };
 
-export const CodeSection: FC<CodeSectionProps> = (props) => {
-  const { code, title } = props;
+export const CodeSection: FC<PropsWithChildren<CodeSectionProps>> = (props) => {
+  const { children, linkTarget, title } = props;
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+    rootMargin: '0px 0px -60% 0px'
+  });
+  const { active, setActive } = useCodeLinks();
+
+  useEffect(() => {
+    setActive({ [linkTarget]: inView });
+  }, [inView]);
 
   return (
-    <div
-      className={css({
-        position: 'relative',
-        display: 'grid',
-        gridTemplateColumns: '1fr 50%',
-        gridGap: '1rem',
-        marginBottom: '$12'
-      })()}
-    >
+    <>
       <div>
-        <h2
-          className={css({
-            fontSize: '$700',
-            fontWeight: 'bold',
-            marginBottom: '$4'
-          })()}
+        <h3
+          ref={ref}
+          id={linkTarget.replace('#', '')}
+          className={css({ fontSize: '$500', marginBottom: '$3' })()}
         >
           {title}
-        </h2>
-        <p>
-          lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-          ipsum
-        </p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
-        <p>lorem ipsum</p>
+        </h3>
+        {children}
       </div>
-      <div
-        className={css({
-          position: 'sticky',
-          top: '$8',
-          alignSelf: 'start'
-        })()}
-      >
-        <Code code={code} />
-      </div>
-    </div>
+      {/* Spacer here so intersection observer doesnt count whitesace */}
+      <div className={css({ marginTop: '$12' })()} />
+    </>
   );
 };

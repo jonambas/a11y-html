@@ -2,6 +2,9 @@ import { Html, Head, Main, NextScript } from 'next/document';
 import { getCssText, globalCss } from '~stitches';
 
 const global = globalCss({
+  html: {
+    scrollBehavior: 'smooth'
+  },
   body: {
     margin: 0,
     padding: 0,

@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "~stitches": ["./styles/stitches.ts"],
-      "~components/*": ["./components/*"]
+      "~components/*": ["./components/*"],
+      "~context/*": ["./context/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
