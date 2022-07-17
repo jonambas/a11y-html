@@ -20,9 +20,9 @@ export const Switch: FC = () => {
     <CodeContainer code={switchCode} title="Switch (On/Off)">
       <p>
         A type of checkbox that represents on and off values, as opposed to
-        checked and unchecked values. Functionally the same as a{' '}
-        <InlineCode>checkbox</InlineCode>, but should be used when the element
-        visually looks like a button.
+        checked and unchecked values. Functionally similar to a{' '}
+        <InlineCode>checkbox</InlineCode>, but only supports an on and off
+        state.
       </p>
       <CodeSection title="role" linkTarget="#toggle-role">
         <p>
