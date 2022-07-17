@@ -55,7 +55,7 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
             '@md': {
               order: 'inherit',
               position: 'sticky',
-              top: '$8',
+              top: '$16',
               alignSelf: 'start'
             }
           })()}

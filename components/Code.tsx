@@ -36,14 +36,17 @@ const Wrapper = styled('div', {
     opacity: '1',
     background: '$gray800',
     borderRadius: '$sm',
-    padding: '0.22em 0.3em',
-    marginLeft: '-0.3em',
+    padding: '0.22em 0.4em',
+    marginLeft: '-0.4em',
     cursor: 'pointer',
     transition: '0.15s',
     color: 'unset',
     textDecoration: 'none',
     '&.in-view': {
-      background: '$purple700'
+      background: '$purple700',
+      '*': {
+        color: 'white !important'
+      }
     },
     '&:hover': {
       background: '$gray700',

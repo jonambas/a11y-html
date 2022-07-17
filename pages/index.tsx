@@ -5,6 +5,7 @@ import { css } from '~stitches';
 import { ToggleOnOff } from '~content/ToggleOnOff';
 import { ToggleButton } from '~content/ToggleButton';
 import { Menu } from '~content/Menu';
+import { Dialog } from '~content/Dialog';
 
 const Home: NextPage = () => {
   return (
@@ -24,6 +25,7 @@ const Home: NextPage = () => {
         </h1>
         <ToggleOnOff />
         <ToggleButton />
+        <Dialog />
         <Menu />
       </div>
     </>
