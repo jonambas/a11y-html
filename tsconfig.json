@@ -18,7 +18,8 @@
     "paths": {
       "~stitches": ["./styles/stitches.ts"],
       "~components/*": ["./components/*"],
-      "~context/*": ["./context/*"]
+      "~context/*": ["./context/*"],
+      "~content/*": ["./content/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
