@@ -161,7 +161,7 @@ const Renderer = (props: any): ReactNode => {
 
   const parsedLinks = props.rows.reduce((acc: any[], row: any) => {
     if (rowHasLink(row)) {
-      let newRowChildren = [];
+      const newRowChildren = [];
       let insideLink = false;
       let newLinkNode;
 
@@ -220,7 +220,7 @@ const Renderer = (props: any): ReactNode => {
 
   // Collects links and pushes to context
   useEffect(() => {
-    let hrefs = [];
+    const hrefs = [];
     for (const row of parsedLinks) {
       for (const child of row.children) {
         if (child.tagName === 'a') {

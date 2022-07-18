@@ -1,4 +1,4 @@
-import { FC, ReactNode, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import { css } from '~stitches';
 import { Code } from '~components/Code';
