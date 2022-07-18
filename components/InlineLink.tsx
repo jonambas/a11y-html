@@ -1,9 +1,10 @@
 import { FC, PropsWithChildren, ComponentProps } from 'react';
 import { css } from '~stitches';
 
-export const InlineLink: FC<PropsWithChildren<ComponentProps<'a'>>> = (
-  props
-) => {
+export const InlineLink: FC<PropsWithChildren<ComponentProps<'a'>>> = ({
+  children,
+  ...rest
+}) => {
   return (
     <a
       className={css({
@@ -16,7 +17,9 @@ export const InlineLink: FC<PropsWithChildren<ComponentProps<'a'>>> = (
         '&:hover': { background: '$purple200', color: '$purple800' },
         '&:focus-visible': { outline: 'none', boxShadow: '$focus' }
       })()}
-      {...props}
-    />
+      {...rest}
+    >
+      {children}
+    </a>
   );
 };
