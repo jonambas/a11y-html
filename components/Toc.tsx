@@ -22,6 +22,9 @@ export const Toc: FC = () => {
         <li>
           <InlineLink href="#togglebutton">Toggle Button</InlineLink>
         </li>
+        <li>
+          <em>More coming soon!</em>
+        </li>
       </ul>
     </nav>
   );
