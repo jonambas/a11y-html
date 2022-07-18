@@ -80,7 +80,9 @@ const Row: FC<RowProps> = (props) => {
   const contents = children.map((child, i) => {
     if (child.type === 'text') {
       return (
-        <Fragment key={i}>{child.value.replace(/\[#(\S+)\]/, '')}</Fragment>
+        <Fragment key={i}>
+          {child.value.replace('[]', '').replace(/\[#(\S+)\]/, '')}
+        </Fragment>
       );
     }
     return <Row key={i} {...child} stylesheet={stylesheet} />;
@@ -125,15 +127,33 @@ const rowHasLink = (row: any): boolean => {
   }, false);
 };
 
-const makeNewLinkNode = (node: any) => ({
-  type: 'element',
-  tagName: 'a',
-  children: [node],
-  properties: {
-    className: ['link'],
-    href: ''
+const cleanLinkValue = (str: string) => {
+  return str.replace(/^\s+/, '');
+};
+
+const makeNewLinkNode = (node: any) => {
+  let clean = node.children[0].value;
+
+  // cleans beginning whitespace
+  if (clean.match(/^\s+/)) {
+    clean = cleanLinkValue(clean);
   }
-});
+
+  const newNode = {
+    ...node,
+    children: [{ ...node.children[0], value: clean }]
+  };
+
+  return {
+    type: 'element',
+    tagName: 'a',
+    children: [newNode],
+    properties: {
+      className: ['link'],
+      href: ''
+    }
+  };
+};
 
 const Renderer = (props: any): ReactNode => {
   const { add } = useCodeLinks();
@@ -150,9 +170,24 @@ const Renderer = (props: any): ReactNode => {
 
       for (const node of row.children) {
         if (!insideLink && rowNodeHasLink(node)) {
+          const value = node.children[0].value;
+
+          // if it begins with whitepsace, pick it out
+          // and prepend the row with it
+          // this only happens on rows that are fully encapsulated witha  link
+          if (value.match(/^\s+/)) {
+            const newWhitespace = value.split('[')[0];
+            newRowChildren.push({
+              tagName: 'span',
+              type: 'element',
+              properties: {},
+              children: [{ type: 'text', value: newWhitespace }]
+            });
+          }
+
           insideLink = true;
           newLinkNode = makeNewLinkNode(node);
-          const hrefParts = node.children[0].value
+          const hrefParts = cleanLinkValue(value)
             .split(/(\[|\])/)
             .filter(Boolean);
           newLinkNode.properties.href = hrefParts[1];
@@ -161,6 +196,7 @@ const Renderer = (props: any): ReactNode => {
 
         if (rowNodeHasEndLink(node)) {
           insideLink = false;
+          newLinkNode?.children.push(node);
           newRowChildren.push(newLinkNode);
           continue;
         }
