@@ -20,7 +20,7 @@ Syntax.registerLanguage('html', html);
 import { styled } from '~stitches';
 
 const Wrapper = styled('div', {
-  padding: '$3 $12 $3 $3',
+  padding: '$3',
   background: '$codeBg',
   borderRadius: '$lg',
   position: 'relative',
@@ -30,7 +30,8 @@ const Wrapper = styled('div', {
     fontSize: '$200',
     lineHeight: '1.8em',
     fontWeight: 'semibold',
-    color: '$gray100'
+    color: '$gray100',
+    overflowX: 'auto'
   },
   '.link': {
     opacity: '1',

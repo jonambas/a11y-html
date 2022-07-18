@@ -6,7 +6,7 @@ export const Footer: FC = () => {
   return (
     <footer
       className={css({
-        padding: '0 0 $24 0',
+        padding: '0',
         textAlign: 'center',
         '@md': {
           padding: '$32 0'
@@ -15,7 +15,7 @@ export const Footer: FC = () => {
     >
       <p>
         Made by{' '}
-        <InlineLink href="https://www.jonambas.com">Jon Ambas</InlineLink> 😊
+        <InlineLink href="https://www.jonambas.com">Jon Ambas</InlineLink>
       </p>
       <p>
         <InlineLink href="https://github.com/jonambas/a11y-html">

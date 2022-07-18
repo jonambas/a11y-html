@@ -31,12 +31,14 @@ const Container: FC<PropsWithChildren<CodeContainerProps>> = (props) => {
           display: 'grid',
           gridTemplateColumns: '1fr',
           borderBottom: '1px solid $gray100',
-          '@md': {
-            gridTemplateColumns: '1fr 50%'
-          },
           gridGap: '$8',
-          paddingBottom: '$20',
-          marginBottom: '$20'
+          paddingBottom: '$8',
+          marginBottom: '$8',
+          '@md': {
+            paddingBottom: '$20',
+            marginBottom: '$20',
+            gridTemplateColumns: '1fr 50%'
+          }
         })()}
       >
         <div>{children}</div>

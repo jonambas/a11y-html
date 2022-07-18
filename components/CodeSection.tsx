@@ -22,7 +22,14 @@ export const CodeSection: FC<PropsWithChildren<CodeSectionProps>> = (props) => {
   }, [inView]);
 
   return (
-    <div className={css({ '&:not(:last-child)': { marginBottom: '$16' } })()}>
+    <div
+      className={css({
+        '&:not(:last-child)': {
+          marginBottom: '$12',
+          '@md': { marginBottom: '$16' }
+        }
+      })()}
+    >
       <h3
         ref={ref}
         id={linkTarget.replace('#', '')}

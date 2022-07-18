@@ -19,8 +19,8 @@ const Home: NextPage = () => {
       <div>
         <div
           className={css({
-            margin: '$12 0 $16 0',
-            padding: '0 0 $16 0',
+            margin: '$12 0',
+            padding: '0 0 $12 0',
             borderBottom: '1px solid $gray100',
             '@md': {
               margin: '$20 0 $24 0',
