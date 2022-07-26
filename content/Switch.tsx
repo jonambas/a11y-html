@@ -17,7 +17,7 @@ const switchCode = `
 
 export const Switch: FC = () => {
   return (
-    <CodeContainer code={switchCode} title="Switch (On/Off)" id="switch">
+    <CodeContainer code={switchCode} title="Switch (Toggle)" id="switch">
       <p>
         A type of checkbox that represents on and off values, as opposed to
         checked and unchecked values. Functionally similar to a{' '}

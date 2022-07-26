@@ -60,7 +60,7 @@ export const Popover: FC = () => {
         <p>
           The attribute <InlineCode>aria-controls</InlineCode> identifies the
           element that is controlled or made visible by the button, through a
-          reference to the element's <InlineCode>id</InlineCode>.
+          reference to the element&apos;s <InlineCode>id</InlineCode>.
         </p>
         <ul>
           <li>

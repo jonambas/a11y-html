@@ -30,7 +30,7 @@ export const Dialog: FC = () => {
         <p>
           This attribute <InlineCode>role=&quot;dialog&quot;</InlineCode> tells
           the browser and assistive technology that this element is a dialog,
-          and its content should be separated from the page's content.
+          and its content should be separated from the page&apos;s content.
         </p>
         <ul>
           <li>
