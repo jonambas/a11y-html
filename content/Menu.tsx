@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { CodeContainer } from '~components/CodeContainer';
 import { CodeSection } from '~components/CodeSection';
-import { InlineCode } from '~components/InlineCode';
-import { InlineLink } from '~components/InlineLink';
+// import { InlineCode } from '~components/InlineCode';
+// import { InlineLink } from '~components/InlineLink';
 
 const menu = `
 <button 
