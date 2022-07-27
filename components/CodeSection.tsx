@@ -1,7 +1,7 @@
 import { FC, PropsWithChildren, useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 import { css } from '~stitches';
-import { useInView } from '~components/useInView';
 import { useCodeLinks } from '~context/codeLinks';
 
 type CodeSectionProps = {
@@ -11,12 +11,14 @@ type CodeSectionProps = {
 
 export const CodeSection: FC<PropsWithChildren<CodeSectionProps>> = (props) => {
   const { children, linkTarget, title } = props;
-  // Only highlights in the top 40% of the screen
-  const { ref, inView } = useInView({ top: 0.4 });
+  const { ref, inView } = useInView({
+    threshold: 1,
+    rootMargin: '0px 0px -70% 0px'
+  });
   const { setActive } = useCodeLinks();
 
   useEffect(() => {
-    setActive({ [linkTarget]: !!inView });
+    setActive({ [linkTarget]: inView });
   }, [inView]);
 
   return (
