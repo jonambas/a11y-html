@@ -16,7 +16,6 @@ const popover = `
 <div
   [#popover-controls]id="popover-container"[]
   [#popover-hidden]aria-hidden="false"[]
-  [#popover-focusable]tabindex="-1"[]
 >
   <p>Popover content</p>
   [#popover-focusable]<button type="button">Close</button>[]
@@ -104,10 +103,6 @@ export const Popover: FC = () => {
           The popover must have a focusable element, and focus should be moved
           to the either first focusable element within the popover or the
           container when it is opened.
-        </p>
-        <p>
-          <InlineCode>tabindex</InlineCode> in this example demonstrates
-          focusing on the container on open.
         </p>
         <ul>
           <li>
