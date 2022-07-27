@@ -23,13 +23,13 @@ export const Tooltip: FC = () => {
     <CodeContainer code={tooltip} title="Tooltip" id="tooltip">
       <p>
         A tooltip is a small overlay element that provides auxiliary content for
-        a another focusable or interactive element, such as a field, link or
+        another focusable or interactive element, such as a field, link or
         button. Tooltips are triggerd by both focus and hover events.
       </p>
       <CodeSection title="role" linkTarget="#tooltip-role">
         <p>
           The attribute <InlineCode>role=&quot;tooltip&quot;</InlineCode> tells
-          assistive technology that this element is a switch.
+          assistive technology that this element is a tooltip.
         </p>
         <ul>
           <li>
