@@ -37,7 +37,7 @@ export const CodeLinkProvider: FC<PropsWithChildren> = (props) => {
   };
 
   const set: Context['setActive'] = (obj) => {
-    setActive({ ...active, ...obj });
+    setActive(obj);
   };
 
   return (
