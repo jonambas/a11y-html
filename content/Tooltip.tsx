@@ -71,7 +71,7 @@ export const Tooltip: FC = () => {
           To prevent interaction with tooltip content when it is closed, either
           use <InlineCode>aria-hidden</InlineCode> set to{' '}
           <InlineCode>&quot;true&quot;</InlineCode>, or do not render the
-          popover.
+          tooltip.
         </p>
         <ul>
           <li>
