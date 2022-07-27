@@ -25,7 +25,7 @@
     "@typescript-eslint/no-empty-function": 0
   },
   "ignorePatterns": [
-    "next/**",
+    ".next/**",
     ".github/**",
     "node_modules/**",
     "next.config.js"
