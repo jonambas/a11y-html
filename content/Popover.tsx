@@ -104,14 +104,6 @@ export const Popover: FC = () => {
           to the either first focusable element within the popover or the
           container when it is opened.
         </p>
-        <ul>
-          <li>
-            See:{' '}
-            <InlineLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex">
-              MDN tabindex documentation
-            </InlineLink>
-          </li>
-        </ul>
       </CodeSection>
     </CodeContainer>
   );
