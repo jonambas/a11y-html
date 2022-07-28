@@ -10,9 +10,9 @@ export const Toc: FC = () => {
         <li>
           <InlineLink href="#dialog">Dialog</InlineLink>
         </li>
-        {/* <li>
-          <InlineLink href="#menu">Menu</InlineLink>
-        </li> */}
+        <li>
+          <InlineLink href="#menu">Dropdown Menu</InlineLink>
+        </li>
         <li>
           <InlineLink href="#popover">Popover</InlineLink>
         </li>
