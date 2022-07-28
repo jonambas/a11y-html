@@ -5,7 +5,7 @@ import { css } from '~stitches';
 import { Toc } from '~components/Toc';
 import { Switch } from '~content/Switch';
 import { ToggleButton } from '~content/ToggleButton';
-// import { Menu } from '~content/Menu';
+import { Menu } from '~content/Menu';
 import { Dialog } from '~content/Dialog';
 import { Popover } from '~content/Popover';
 import { Tooltip } from '~content/Tooltip';
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
         </div>
 
         <Dialog />
-        {/* <Menu /> */}
+        <Menu />
         <Popover />
         <Switch />
         <ToggleButton />
