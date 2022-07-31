@@ -16,7 +16,6 @@ const popover = `
 <div
   [#popover-controls]id="popover-container"[]
   [#popover-hidden]aria-hidden="false"[]
-  [#popover-focusable]tabindex="-1"[]
 >
   <p>Popover content</p>
   [#popover-focusable]<button type="button">Close</button>[]
@@ -60,7 +59,7 @@ export const Popover: FC = () => {
         <p>
           The attribute <InlineCode>aria-controls</InlineCode> identifies the
           element that is controlled or made visible by the button, through a
-          reference to the element's <InlineCode>id</InlineCode>.
+          reference to the element&apos;s <InlineCode>id</InlineCode>.
         </p>
         <ul>
           <li>
@@ -105,18 +104,6 @@ export const Popover: FC = () => {
           to the either first focusable element within the popover or the
           container when it is opened.
         </p>
-        <p>
-          <InlineCode>tabindex</InlineCode> in this example demonstrates
-          focusing on the container on open.
-        </p>
-        <ul>
-          <li>
-            See:{' '}
-            <InlineLink href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex">
-              MDN tabindex documentation
-            </InlineLink>
-          </li>
-        </ul>
       </CodeSection>
     </CodeContainer>
   );

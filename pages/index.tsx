@@ -5,9 +5,10 @@ import { css } from '~stitches';
 import { Toc } from '~components/Toc';
 import { Switch } from '~content/Switch';
 import { ToggleButton } from '~content/ToggleButton';
-// import { Menu } from '~content/Menu';
+import { Menu } from '~content/Menu';
 import { Dialog } from '~content/Dialog';
 import { Popover } from '~content/Popover';
+import { Tooltip } from '~content/Tooltip';
 import { Footer } from '~components/Footer';
 
 const Home: NextPage = () => {
@@ -15,6 +16,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>A11Y HTML</title>
+        <meta
+          name="description"
+          content="A collection of accessible HTML for common UI components, such as tooltips, dialogs, dropdowns, or popovers."
+        />
       </Head>
       <div>
         <div
@@ -40,10 +45,11 @@ const Home: NextPage = () => {
         </div>
 
         <Dialog />
-        {/* <Menu /> */}
+        <Menu />
         <Popover />
         <Switch />
         <ToggleButton />
+        <Tooltip />
       </div>
       <Footer />
     </>
