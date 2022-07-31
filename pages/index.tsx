@@ -16,6 +16,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>A11Y HTML</title>
+        <meta
+          name="description"
+          content="A collection of accessible HTML for common UI components, such as tooltips, dialogs, dropdowns, or popovers."
+        />
       </Head>
       <div>
         <div
