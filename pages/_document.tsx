@@ -46,7 +46,7 @@ export default function Document() {
       <Head>
         <link rel="icon" type="image/png" href="/favicon.png" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=optional"
           rel="stylesheet"
         />
         <style
