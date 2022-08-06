@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 import { styled } from '~stitches';
+import { Footer } from '~components/Footer';
 
 const Main = styled('main', {
   maxWidth: '1100px',
@@ -11,5 +12,10 @@ const Main = styled('main', {
 });
 
 export const Layout: FC<PropsWithChildren> = (props) => {
-  return <Main>{props.children}</Main>;
+  return (
+    <>
+      <Main>{props.children}</Main>
+      <Footer />
+    </>
+  );
 };
