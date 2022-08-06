@@ -9,7 +9,6 @@ import { Menu } from '~content/Menu';
 import { Dialog } from '~content/Dialog';
 import { Popover } from '~content/Popover';
 import { Tooltip } from '~content/Tooltip';
-import { Footer } from '~components/Footer';
 
 const Home: NextPage = () => {
   return (
@@ -51,7 +50,6 @@ const Home: NextPage = () => {
         <ToggleButton />
         <Tooltip />
       </div>
-      <Footer />
     </>
   );
 };
