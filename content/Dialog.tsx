@@ -5,7 +5,7 @@ import { CodeSection } from '~components/CodeSection';
 import { InlineCode } from '~components/InlineCode';
 import { InlineLink } from '~components/InlineLink';
 
-const toggle = `
+export const code = `
 <button type="button">Open dialog</button>
 <div
   [#dialog-role]role="dialog"[]
@@ -13,14 +13,16 @@ const toggle = `
   [#dialog-labelledby]aria-labelledby="dialog-label"[]
   [#dialog-describedby]aria-describedby="dialog-desc"[]
 >
-  <h3 [#dialog-labelledby]id="dialog-label"[]>Dialog Title</h3>
+  <h2 [#dialog-labelledby]id="dialog-label"[]>Dialog Title</h2>
   <p [#dialog-describedby]id="dialog-desc"[]>Dialog Description</p>
 </div>
 `;
 
+export const displayName = 'Dialog';
+
 export const Dialog: FC = () => {
   return (
-    <CodeContainer code={toggle} title="Dialog" id="dialog">
+    <CodeContainer code={code} title={displayName} id="dialog">
       <p>
         A dialog is an interactive overlay component, such as a dismissible
         alert or confirmation window, that separates content from the rest of

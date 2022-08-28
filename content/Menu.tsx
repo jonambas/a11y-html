@@ -5,7 +5,7 @@ import { CodeSection } from '~components/CodeSection';
 import { InlineCode } from '~components/InlineCode';
 import { InlineLink } from '~components/InlineLink';
 
-const menu = `
+export const code = `
 <button 
   [#menu-idtrigger]id="menu-trigger"[]
   [#menu-haspopup]aria-haspopup="true"[]
@@ -28,9 +28,11 @@ const menu = `
 </div>
 `;
 
+export const displayName = 'Menu';
+
 export const Menu: FC = () => {
   return (
-    <CodeContainer code={menu} title="Dropdown Menu" id="menu">
+    <CodeContainer code={code} title={'Dropdown ' + displayName} id="menu">
       <p>
         A menu is an interactive component that groups together a list of
         actions or choices that a user can invoke.
