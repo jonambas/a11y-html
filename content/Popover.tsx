@@ -5,7 +5,7 @@ import { CodeSection } from '~components/CodeSection';
 import { InlineCode } from '~components/InlineCode';
 import { InlineLink } from '~components/InlineLink';
 
-const popover = `
+export const code = `
 <button
   type="button"
   [#popover-expanded]aria-expanded="true"[]
@@ -23,9 +23,11 @@ const popover = `
 
 `;
 
+export const displayName = 'Popover';
+
 export const Popover: FC = () => {
   return (
-    <CodeContainer code={popover} title="Popover" id="popover">
+    <CodeContainer code={code} title={displayName} id="popover">
       <p>
         A popover is an non-modal overlay element that displays additional
         content.

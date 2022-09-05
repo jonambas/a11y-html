@@ -240,10 +240,14 @@ type CodeProps = {
   code: string;
 };
 
+export const removeCodeTags = (code: string) => {
+  return code.replaceAll('[]', '').replaceAll(/\[#(\S+)\]/g, '');
+};
+
 export const Code: FC<CodeProps> = (props) => {
   const { code } = props;
   const string = code.trim();
-  const copyString = string.replaceAll('[]', '').replaceAll(/\[#(\S+)\]/g, '');
+  const copyString = removeCodeTags(string);
 
   return (
     <Wrapper>

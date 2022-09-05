@@ -5,7 +5,7 @@ import { CodeSection } from '~components/CodeSection';
 import { InlineCode } from '~components/InlineCode';
 import { InlineLink } from '~components/InlineLink';
 
-const tooltip = `
+export const code = `
 <a [#tooltip-describedby]aria-describedby="tooltip"[]>
   Link
 </a>
@@ -18,9 +18,11 @@ const tooltip = `
 </span>
 `;
 
+export const displayName = 'Tooltip';
+
 export const Tooltip: FC = () => {
   return (
-    <CodeContainer code={tooltip} title="Tooltip" id="tooltip">
+    <CodeContainer code={code} title={displayName} id="tooltip">
       <p>
         A tooltip is a small overlay element that provides auxiliary content for
         another focusable or interactive element, such as a field, link or

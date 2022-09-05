@@ -5,7 +5,7 @@ import { CodeSection } from '~components/CodeSection';
 import { InlineCode } from '~components/InlineCode';
 import { InlineLink } from '~components/InlineLink';
 
-const toggleButton = `
+export const code = `
 <button
   type="button"
   [#togglebutton-pressed]aria-pressed="true"[]
@@ -14,9 +14,11 @@ const toggleButton = `
 </button>
 `;
 
+export const displayName = 'Toggle Button';
+
 export const ToggleButton: FC = () => {
   return (
-    <CodeContainer code={toggleButton} title="Toggle Button" id="togglebutton">
+    <CodeContainer code={code} title={displayName} id="togglebutton">
       <p>
         A toggle button that represents on or off values. Functionally similar
         to <InlineCode>switch</InlineCode>, but supports mixed values and should
