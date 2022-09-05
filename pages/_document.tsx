@@ -44,7 +44,16 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link
+          rel="shortcut icon"
+          href="/favicon-light.png"
+          media="(prefers-color-scheme: light)"
+        />
+        <link
+          rel="shortcut icon"
+          href="/favicon-dark.png"
+          media="(prefers-color-scheme: dark)"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=optional"
           rel="stylesheet"
