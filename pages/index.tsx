@@ -9,6 +9,7 @@ import { Menu } from '~content/Menu';
 import { Dialog } from '~content/Dialog';
 import { Popover } from '~content/Popover';
 import { Tooltip } from '~content/Tooltip';
+import { Tabs } from '~content/Tabs';
 
 const Home: NextPage = () => {
   return (
@@ -47,6 +48,7 @@ const Home: NextPage = () => {
         <Menu />
         <Popover />
         <Switch />
+        <Tabs />
         <ToggleButton />
         <Tooltip />
       </div>
