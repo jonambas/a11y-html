@@ -28,7 +28,7 @@
     "@types/react-syntax-highlighter": "15.5.5",
     "@typescript-eslint/eslint-plugin": "5.37.0",
     "@typescript-eslint/parser": "5.37.0",
-    "axe-core": "4.4.3",
+    "axe-core": "4.9.0",
     "cypress": "10.5.0",
     "cypress-axe": "1.0.0",
     "eslint": "8.23.1",
